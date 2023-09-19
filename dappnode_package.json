@@ -1,0 +1,12 @@
+{
+  "name": "safestake-testnet.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "description": "Dappnode Package for SafeStake Operator",
+  "type": "service",
+  "author": "Dappnode Association",
+  "categories": ["DVT"],
+  "links": {
+    "homepage": "https://www.parastate.io/safestake/"
+  },
+  "license": "GPL-3.0"
+}
