@@ -1,4 +1,0 @@
-ARG UPSTREAM_VERSION
-
-FROM parastate/dvf-operator:${UPSTREAM_VERSION}
-

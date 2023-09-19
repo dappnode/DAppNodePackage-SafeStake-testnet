@@ -4,9 +4,15 @@
   "description": "Dappnode Package for SafeStake Operator",
   "type": "service",
   "author": "Dappnode Association",
-  "categories": ["DVT"],
+  "categories": ["ETH2.0"],
   "links": {
     "homepage": "https://www.parastate.io/safestake/"
   },
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "globalEnvs": [
+    {
+      "envs": ["CONSENSUS_CLIENT_PRATER", "EXECUTION_CLIENT_PRATER"],
+      "services": ["operator"]
+    }
+  ]
 }
