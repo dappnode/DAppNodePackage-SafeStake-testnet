@@ -11,3 +11,16 @@ services:
         https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-goerli.flashbots.net
     image: "operator.safestake-testnet.dnp.dappnode.eth:0.1.0"
     restart: unless-stopped
+
+  lighthouse:
+    build:
+      context: lighthouse
+      args:
+        UPSTREAM_VERSION: v4.3.0
+    restart: unless-stopped
+    security_opt:
+      - "seccomp:unconfined"
+    environment:
+      DEBUG_LEVEL: "info"
+      GRAFFITI: validating_from_DAppNode
+      EXTRA_OPTS: ""
