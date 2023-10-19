@@ -14,5 +14,12 @@
       "envs": ["CONSENSUS_CLIENT_PRATER", "EXECUTION_CLIENT_PRATER"],
       "services": ["operator"]
     }
+  ],
+  "backup": [
+    {
+      "name": "operator_keys",
+      "path": "/root/.lighthouse/v1",
+      "service": "operator"
+    }
   ]
 }
