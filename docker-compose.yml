@@ -6,8 +6,13 @@ services:
       args:
         UPSTREAM_VERSION: v1.2-testnet
     environment:
+      OPERATOR_ID: ""
       API_SERVER: "https://api-testnet.safestake.xyz/v1/"
       MEV_BOOST_RELAYS: >-
         https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-goerli.flashbots.net
     image: "operator.safestake-testnet.dnp.dappnode.eth:0.1.0"
     restart: unless-stopped
+    volumes:
+      - "operator_keys:/root/.lighthouse"
+volumes:
+  operator_keys: {}
