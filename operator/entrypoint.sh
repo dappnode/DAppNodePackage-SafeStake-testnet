@@ -141,10 +141,19 @@ else
 fi
 
 # 4. Start operator
-NODE_IP=$(retry_request get_public_ip $MAX_RETRIES $SLEEP_DURATION)
-if [[ -z "$NODE_IP" ]]; then
-    echo "[ERROR] Failed to retrieve PUBLIC_IP from dappmanager after $MAX_RETRIES retries. Exiting..."
-    exit 1
+
+# If _DAPPNODE_GLOBAL_PUBLIC_IP is set, use it as NODE_IP
+if [ -n "$_DAPPNODE_GLOBAL_PUBLIC_IP" ]; then
+    echo "[INFO] _DAPPNODE_GLOBAL_PUBLIC_IP is set. Using it as NODE_IP."
+    NODE_IP=$_DAPPNODE_GLOBAL_PUBLIC_IP
+else
+    echo "[INFO] _DAPPNODE_GLOBAL_PUBLIC_IP is not set. Retrieving NODE_IP from dappmanager..."
+    NODE_IP=$(retry_request get_public_ip $MAX_RETRIES $SLEEP_DURATION)
+
+    if [[ -z "$NODE_IP" ]]; then
+        echo "[ERROR] Failed to retrieve PUBLIC_IP from dappmanager after $MAX_RETRIES retries. Exiting..."
+        exit 1
+    fi
 fi
 
 echo "[INFO] NODE_IP set to $NODE_IP"
