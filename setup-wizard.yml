@@ -1,0 +1,13 @@
+version: "2"
+fields:
+  - id: committee-fee-recipient
+    target:
+      type: environment
+      name: FEE_RECIPIENT
+      service: operator
+    title: Committee Fee Recipient
+    description: |
+      All operators belonging to the committee should have the same fee recipient
+    required: false
+    pattern: "^0x[a-fA-F0-9]{40}$"
+    patternErrorMessage: Must be a valid Ethereum address (0x1fd16a...)

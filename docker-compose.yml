@@ -10,8 +10,16 @@ services:
       API_SERVER: "https://api-testnet.safestake.xyz/v1/"
       MEV_BOOST_RELAYS: >-
         https://0xafa4c6985aa049fb79dd37010438cfebeb0f2bd42b115b89dd678dab0670c1de38da0c4e9138c9290a398ecd9a0b3110@boost-relay-goerli.flashbots.net
+      FEE_RECIPIENT: ""
     image: "operator.safestake-testnet.dnp.dappnode.eth:0.1.0"
     restart: unless-stopped
+    ports:
+      - "26000:26000"
+      - "26001:26001"
+      - "26002:26002"
+      - "26003:26003"
+      - "26004:26004"
+      - "26005:26005"
     volumes:
       - "operator_keys:/root/.lighthouse"
 volumes:
