@@ -156,5 +156,13 @@ fi
 
 echo "[INFO] NODE_IP set to $NODE_IP"
 
+if [[ "$FEE_RECIPIENT" =~ ^0x[a-fA-F0-9]{40}$ ]]; then
+    EXTRA_OPTS="--suggested-fee-recipient=${FEE_RECIPIENT} ${EXTRA_OPTS}"
+fi
+
 # 5. Start the operator
-dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} --base-port=26000 --logfile-max-size=4 --logfile-max-number=1 2>&1
+dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} \
+    --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} \
+    --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} \
+    --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} \
+    --base-port=26000 --logfile-max-size=4 --logfile-max-number=1 ${EXTRA_OPTS} 2>&1
