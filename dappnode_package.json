@@ -1,12 +1,16 @@
 {
   "name": "safestake-testnet.dnp.dappnode.eth",
   "version": "0.1.0",
-  "description": "Dappnode Package for SafeStake Operator",
+  "upstreamVersion": "v1.2-testnet",
+  "upstreamRepo": "ParaState/SafeStakeOperator",
+  "description": "SafeStake Operator node is the first Ethereum validation client natively integrated with DVT (distributed validator technology) written in Rust.",
+  "shortDescription": "Ethereum validation client integrated with DVT",
   "type": "service",
   "author": "Dappnode Association",
   "categories": ["ETH2.0"],
   "links": {
-    "homepage": "https://www.parastate.io/safestake/"
+    "homepage": "https://www.parastate.io/safestake/",
+    "register": "https://testnet.safestake.xyz"
   },
   "license": "GPL-3.0",
   "globalEnvs": [

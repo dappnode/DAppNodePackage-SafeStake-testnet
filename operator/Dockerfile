@@ -2,6 +2,7 @@ ARG UPSTREAM_VERSION
 
 FROM parastate/dvf-operator:${UPSTREAM_VERSION}
 
+# To get the Public IP from the Dappmanager API
 RUN apt update && apt install -y jq curl
 
 ENV OPERATOR_NETWORK=prater \

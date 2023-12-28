@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NODE_PUBKEY_FILE_PATH=/root/.lighthouse/v1/${OPERATOR_NETWORK}/node_key.json
-DAPPMANAGER_ALIASES=("my.dappnode" "dappmanager.dappnode" "dappmanager.dnp.dappnode.eth.dappmanager.dappnode" "172.33.1.7")
+DAPPMANAGER_ALIASES=("my.dappnode" "dappmanager.dappnode" "dappmanager.dnp.dappnode.eth.dappmanager.dappnode")
 
 MAX_RETRIES=5
 SLEEP_DURATION=10
@@ -140,9 +140,7 @@ else
     echo "[INFO] OPERATOR_ID has been set to $OPERATOR_ID."
 fi
 
-# 4. Start operator
-
-# If _DAPPNODE_GLOBAL_PUBLIC_IP is set, use it as NODE_IP
+# 4. Get the node public IP
 if [ -n "$_DAPPNODE_GLOBAL_PUBLIC_IP" ]; then
     echo "[INFO] _DAPPNODE_GLOBAL_PUBLIC_IP is set. Using it as NODE_IP."
     NODE_IP=$_DAPPNODE_GLOBAL_PUBLIC_IP
@@ -158,4 +156,5 @@ fi
 
 echo "[INFO] NODE_IP set to $NODE_IP"
 
-dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} --base-port=26000 2>&1
+# 5. Start the operator
+dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} --base-port=26000 --log-file-max-size=4 --log-file-max-number=1 2>&1
