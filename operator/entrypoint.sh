@@ -157,4 +157,4 @@ fi
 echo "[INFO] NODE_IP set to $NODE_IP"
 
 # 5. Start the operator
-dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} --base-port=26000 --log-file-max-size=4 --log-file-max-number=1 2>&1
+dvf validator_client --debug-level=info --network=${OPERATOR_NETWORK} --beacon-nodes=${BEACON_NODE_ENDPOINT} --api=${API_SERVER} --ws-url=${EXECUTION_CLIENT_WS} --ip=${NODE_IP} --id=${OPERATOR_ID} --registry-contract=${REGISTRY_CONTRACT_ADDRESS} --network-contract=${NETWORK_CONTRACT_ADDRESS} --base-port=26000 --logfile-max-size=4 --logfile-max-number=1 2>&1
