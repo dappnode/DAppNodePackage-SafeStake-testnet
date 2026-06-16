@@ -1,18 +1,16 @@
 {
-  "name": "safestake-testnet.dnp.dappnode.eth",
-  "version": "0.1.0",
-  "upstreamVersion": "v1.2-testnet",
-  "upstreamRepo": "ParaState/SafeStakeOperator",
-  "description": "SafeStake Operator node is the first Ethereum validation client natively integrated with DVT (distributed validator technology) written in Rust.",
-  "shortDescription": "Ethereum validation client integrated with DVT",
-  "type": "service",
   "author": "Dappnode Association",
-  "categories": ["ETH2.0"],
-  "links": {
-    "homepage": "https://www.parastate.io/safestake/",
-    "register": "https://testnet.safestake.xyz"
-  },
-  "license": "GPL-3.0",
+  "backup": [
+    {
+      "name": "operator_keys",
+      "path": "/root/.lighthouse/v1",
+      "service": "operator"
+    }
+  ],
+  "categories": [
+    "ETH2.0"
+  ],
+  "description": "SafeStake Operator node is the first Ethereum validation client natively integrated with DVT (distributed validator technology) written in Rust.",
   "globalEnvs": [
     {
       "envs": [
@@ -20,14 +18,20 @@
         "EXECUTION_CLIENT_PRATER",
         "PUBLIC_IP"
       ],
-      "services": ["operator"]
+      "services": [
+        "operator"
+      ]
     }
   ],
-  "backup": [
-    {
-      "name": "operator_keys",
-      "path": "/root/.lighthouse/v1",
-      "service": "operator"
-    }
-  ]
+  "license": "GPL-3.0",
+  "links": {
+    "homepage": "https://www.parastate.io/safestake/",
+    "register": "https://testnet.safestake.xyz"
+  },
+  "name": "safestake-testnet.dnp.dappnode.eth",
+  "shortDescription": "Ethereum validation client integrated with DVT",
+  "type": "service",
+  "upstreamRepo": "ParaState/SafeStakeOperator",
+  "upstreamVersion": "v4.2.0-mainnet",
+  "version": "0.1.1"
 }
